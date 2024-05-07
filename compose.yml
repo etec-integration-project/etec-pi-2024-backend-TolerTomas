@@ -1,0 +1,28 @@
+version: '1.0'
+
+services:
+  # falta definir los volumnes para la base de datos
+  postgres-db:
+    image: postgres:16.2
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: root
+      POSTGRES_DB: project-database
+    ports:
+      - 5432:5432
+
+  auth-backend-app:
+    image:
+      context: .
+    restart: always
+    ports:
+      - 5050:5050
+    # falta chequear las variables de entorno
+    environment:
+      - host=postgres-db
+      - user_db=root
+      - user_pwsd=mysecretpassword
+      - name_db=project-database
+    depends_on:
+      - postgres-db

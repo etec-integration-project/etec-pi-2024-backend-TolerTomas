@@ -21,7 +21,7 @@ COPY . .
 # generar los archivos para la base de datos
 RUN pnpm run db:generate 
 # haces las migraciones
-RUN pnpm run db:migrate
+# RUN pnpm run db:migrate
 
 EXPOSE 5050
 

@@ -1,12 +1,15 @@
-FROM node:20.11-alpine
+FROM node:20-alpine
+
+RUN apk update
+RUN apk add bash
 
 WORKDIR /app
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 
-# instalar pnpm de forma global
-# instalar las dependencia
+RUN npm install -g pnpm
+RUN pnpm install
 
 COPY . .
 
@@ -17,6 +20,4 @@ RUN pnpm run db:migrate
 
 EXPOSE 5050
 
-# RUN tsc
-# CMD ["npm", "start"]
 CMD [ "pnpm", "run", "dev" ]

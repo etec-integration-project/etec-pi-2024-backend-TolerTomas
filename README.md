@@ -24,3 +24,6 @@ docker exec -it <docker-id> bash
 ```
 pnpm run db:migrate
 ```
+
+## Testear la app
+> visitar en el navigador \<ip>:5050/api/test

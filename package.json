@@ -1,0 +1,31 @@
+{
+  "name": "etec-pi-2024-backend-TolerTomas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "tsc": "tsc",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "tsx src/drizzle/migrate.ts",
+    "db:drop": "drizzle-kit drop"
+  },
+  "keywords": [],
+  "author": "Tomas Toler",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.8",
+    "drizzle-kit": "^0.20.17",
+    "tsx": "^4.9.1",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.10",
+    "express": "^4.19.2",
+    "postgres": "^3.4.4"
+  }
+}

@@ -8,7 +8,16 @@ export const UserTable = pgTable('users', {
     password: varchar('password', { length: 8 }).notNull(),
 })
 
+export const ServerTable = pgTable('servers', {
+    id: uuid('id').primaryKey().defaultRandom(),
+    name: varchar('name', { length: 20 }).notNull(),
+    password: varchar('password', { length: 8 }).notNull()
+})
+
+/**
+ * Esta tabla se usa para autenticar los usuarios desde el servidor de archivos
+ */
 export const TokenTable = pgTable('tokens', {
     id: uuid('id').primaryKey().defaultRandom(),
-    token: uuid('token').notNull()
+    token: varchar('token', { lenght: 100 }).notNull()
 })

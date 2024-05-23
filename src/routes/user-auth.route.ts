@@ -1,9 +1,6 @@
 import 'dotenv/config'
-import { Router, Request, Response } from "express";
-import { db } from "../db";
-import { getUserByEmail } from '../data/users';
-import { UserTable } from '../drizzle/schemas';
-import bcrypt from 'bcryptjs'
+import { Router, Request, Response } from "express"
+import { addUser, getUserByEmail } from '../data/users'
 
 export const userAuthRouter = Router()
 
@@ -13,15 +10,12 @@ userAuthRouter.post('/register', async (req: Request, res: Response) => {
 
     const user = await getUserByEmail(email)
 
-    if (user) return res.json({ error: 'Email already taken' })
-
-    // hash password
-    const hashedPassword = await bcrypt.hash(password, 16)
+    if (user.length !== 0) {
+        return res.json({ error: 'Email already taken' })
+    }
 
     // add user to db
-    const newUser = await db.insert(UserTable).values({
-        name, lastname, email, password: hashedPassword 
-    })
+    const newUser = await addUser(name, lastname, email, password)
 
     return res.json({
         newUser

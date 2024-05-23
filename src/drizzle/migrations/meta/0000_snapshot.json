@@ -1,9 +1,38 @@
 {
-  "id": "130db923-35f0-40bd-824c-c66e1c10018c",
+  "id": "4e3aca07-9b08-4629-9182-e16e1a85883f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
+    "servers": {
+      "name": "servers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(8)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "tokens": {
       "name": "tokens",
       "schema": "",
@@ -17,7 +46,7 @@
         },
         "token": {
           "name": "token",
-          "type": "uuid",
+          "type": "varchar(100)",
           "primaryKey": false,
           "notNull": true
         }

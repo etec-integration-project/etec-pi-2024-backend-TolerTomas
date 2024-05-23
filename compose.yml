@@ -12,18 +12,18 @@ services:
     networks:
       - express-app
 
-  auth-backend-app:
-    build:
-      context: .
-    restart: always
-    ports:
-      - "5050:5050"
-    depends_on:
-      - postgres-db
-    environment:
-      - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
-    networks:
-      - express-app
+  # auth-backend-app:
+  #   build:
+  #     context: .
+  #   restart: always
+  #   ports:
+  #     - "5050:5050"
+  #   depends_on:
+  #     - postgres-db
+  #   environment:
+  #     - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
+  #   networks:
+  #     - express-app
 
 networks:
   express-app:

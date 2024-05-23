@@ -19,5 +19,5 @@ export const ServerTable = pgTable('servers', {
  */
 export const TokenTable = pgTable('tokens', {
     id: uuid('id').primaryKey().defaultRandom(),
-    token: varchar('token', { lenght: 100 }).notNull()
+    token: varchar('token', { length: 100 }).notNull()
 })

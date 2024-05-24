@@ -19,7 +19,7 @@ RUN pnpm install
 COPY . .
 
 # generar los archivos para la base de datos
-RUN pnpm run db:generate 
+RUN pnpm run db:gen 
 # haces las migraciones
 # RUN pnpm run db:migrate
 

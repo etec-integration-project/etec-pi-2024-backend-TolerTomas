@@ -22,7 +22,7 @@ docker exec -it <docker-id> bash
 
 ### Ejecutar el comando:
 ```
-pnpm run db:migrate
+pnpm run db:push
 ```
 
 ## Testear la app

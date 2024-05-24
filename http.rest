@@ -4,7 +4,16 @@ Content-Type: application/json
 {
     "name": "Tomas",
     "lastname": "Toler",
-    "email": "tomastoler301205@gmail.com",
+    "email": "tomastoler@gmail.com",
     "password": "123456"
 }
 
+###
+
+POST http://localhost:5050/api/users/login
+Content-Type: application/json
+
+{
+    "email": "tomastoler@gmail.com",
+    "password": "123456"
+}

@@ -36,7 +36,7 @@ export const addUser = async (name: string, lastname: string, email: string, pas
     const hashedPassword = await bcrypt.hash(password, 16)
 
     await db.insert(UserTable).values({
-        name, lastname, email, password:  hashedPassword
+        name, lastname, email, password: hashedPassword
     })
 
     const user = await getUserByEmailWithoutPassword(email)

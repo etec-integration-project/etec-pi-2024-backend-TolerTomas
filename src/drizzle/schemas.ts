@@ -15,6 +15,8 @@ export const ServerTable = pgTable('servers', {
 })
 
 /**
+ * NO SE SI SE VA A USAR
+ * TODO: Eliminar si es q no hace falta
  * Esta tabla se usa para autenticar los usuarios desde el servidor de archivos
  */
 export const TokenTable = pgTable('tokens', {

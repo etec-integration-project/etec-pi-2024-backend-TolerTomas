@@ -12,8 +12,9 @@ export const register = async (req: Request, res: Response) => {
 	}
 
 	// add user to db
-	const newUser = await addUser(name, lastname, email, password)
+	const newUser = (await addUser(name, lastname, email, password))[0]
 
+    // TODO set and send cookies
 	return res.json({
 		newUser
 	})
@@ -27,6 +28,7 @@ export const login = async (req: Request, res: Response) => {
         return res.json({ error: "Invalid credentials!" })
     }
 
+    // TODO set and send cookies
     return res.json({
         id: user.id,
         name: user.name,

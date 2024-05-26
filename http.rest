@@ -1,4 +1,6 @@
-POST http://localhost:5050/api/users/register
+### USER AUTHENTICATION
+
+POST http://localhost:5050/api/users/register  
 Content-Type: application/json
 
 {
@@ -17,3 +19,10 @@ Content-Type: application/json
     "email": "tomastoler@gmail.com",
     "password": "123456"
 }
+
+### TODO: test routes
+### SERVER AUTHENTICATION 
+POST http://localhost:5050/api/servers/login
+
+###
+POST http://localhost:5050/api/servers/register

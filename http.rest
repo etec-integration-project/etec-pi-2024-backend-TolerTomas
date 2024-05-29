@@ -1,4 +1,4 @@
-### USER AUTHENTICATION
+### * USER AUTHENTICATION
 
 POST http://localhost:5050/api/users/register  
 Content-Type: application/json
@@ -20,8 +20,10 @@ Content-Type: application/json
     "password": "123456"
 }
 
+
+
 ### TODO: test routes
-### SERVER AUTHENTICATION 
+### * SERVER AUTHENTICATION 
 POST http://localhost:5050/api/servers/login
 
 ###

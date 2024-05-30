@@ -1,5 +1,5 @@
 services:
-  # falta definir los volumnes para la base de datos
+
   postgres-db:
     image: postgres:16.2
     restart: always
@@ -10,20 +10,21 @@ services:
     ports:
       - 5432:5432
     networks:
-      - express-app
+      - auth-server-express-app
 
   # auth-backend-app:
   #   build:
   #     context: .
   #   restart: always
   #   ports:
-  #     - "5050:5050"
+  #     - 5050:5050
   #   depends_on:
   #     - postgres-db
   #   environment:
   #     - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
+  #     - JWT_SECRET="kjghiwu8673t439847vn><72"(vgSJa7><)"
   #   networks:
-  #     - express-app
+  #     - auth-server-express-app
 
 networks:
-  express-app:
+  auth-server-express-app:

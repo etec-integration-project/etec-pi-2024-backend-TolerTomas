@@ -10,8 +10,8 @@ export const UserTable = pgTable('users', {
 
 export const ServerTable = pgTable('servers', {
     id: uuid('id').primaryKey().defaultRandom(),
-    name: varchar('name', { length: 20 }).notNull(),
-    password: varchar('password', { length: 8 }).notNull()
+    name: varchar('name', { length: 50 }).notNull(),
+    password: varchar('password', { length: 64 }).notNull()
 })
 
 /**

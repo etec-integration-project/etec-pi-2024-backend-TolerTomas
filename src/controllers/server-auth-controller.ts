@@ -1,6 +1,8 @@
+import 'dotenv/config'
 import { Request, Response } from "express";
 import { getServerByName, addServer } from "../data/servers";
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export const register = async (req: Request, res: Response) => {
 
@@ -16,9 +18,11 @@ export const register = async (req: Request, res: Response) => {
 
     const newServer = await addServer(name, password)
 
-    // TODO return a JWT
+    const server_token = jwt.sign(newServer, process.env.JWT_SECRET as string)
+
     return res.json({
-        newServer
+        token: server_token,
+        server: newServer
     })
 }
 
@@ -33,9 +37,14 @@ export const login = async (req: Request, res: Response) => {
         })
     }
 
-    // TODO return a JWT
-    return res.json({
+    const server = {
         id: existingServer.id,
         name: existingServer.name
+    }
+
+    const server_token = jwt.sign(server, process.env.JWT_SECRET as string)
+    return res.json({
+        server,
+        token: server_token
     })
 }

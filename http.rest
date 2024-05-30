@@ -1,5 +1,6 @@
-### * USER AUTHENTICATION
+### ? USER AUTHENTICATION
 
+### * USER REGISTER
 POST http://localhost:5050/api/users/register  
 Content-Type: application/json
 
@@ -10,7 +11,7 @@ Content-Type: application/json
     "password": "123456"
 }
 
-###
+### * USER LOGIN
 
 POST http://localhost:5050/api/users/login
 Content-Type: application/json
@@ -21,10 +22,22 @@ Content-Type: application/json
 }
 
 
+### ? SERVER AUTHENTICATION
 
-### TODO: test routes
-### * SERVER AUTHENTICATION 
+### * SERVER REGISTER
 POST http://localhost:5050/api/servers/login
+Content-Type: application/json
 
-###
+{
+    "name": "file-server",
+    "password": "123456"
+}
+
+### * SERVER LOGIN
 POST http://localhost:5050/api/servers/register
+Content-Type: application/json
+
+{
+    "name": "file-server",
+    "password": "123456"
+}

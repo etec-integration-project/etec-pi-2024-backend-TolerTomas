@@ -12,19 +12,21 @@ services:
     networks:
       - auth-server-express-app
 
-  # auth-backend-app:
-  #   build:
-  #     context: .
-  #   restart: always
-  #   ports:
-  #     - 5050:5050
-  #   depends_on:
-  #     - postgres-db
-  #   environment:
-  #     - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
-  #     - JWT_SECRET="kjghiwu8673t439847vn><72"(vgSJa7><)"
-  #   networks:
-  #     - auth-server-express-app
+  auth-backend-app:
+    build:
+      context: .
+    restart: always
+    ports:
+      - 5050:5050
+    depends_on:
+      - postgres-db
+    environment:
+      - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
+      # cambiar / borrar token
+      - JWT_SECRET="kjghiwu8673t439847vn><72"(vgSJa7><)"
+    privileged: true
+    networks:
+      - auth-server-express-app
 
 networks:
   auth-server-express-app:

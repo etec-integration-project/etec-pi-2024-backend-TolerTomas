@@ -21,6 +21,7 @@ services:
     depends_on:
       - postgres-db
     environment:
+      # examples
       - DATABASE_URL=postgres://root:mysecretpassword@postgres-db/project-database
       # cambiar / borrar token
       - JWT_SECRET="kjghiwu8673t439847vn><72"(vgSJa7><)"

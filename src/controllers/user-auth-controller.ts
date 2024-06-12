@@ -49,3 +49,8 @@ export const login = async (req: Request, res: Response) => {
     return res.json({ user: newUser})
 
 }
+
+export const logout = async (_req: Request, res: Response) => {
+    res.clearCookie('express-jwt-toler-app')
+    return res.send('logged out')
+}

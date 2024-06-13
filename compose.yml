@@ -10,7 +10,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - auth-server-express-app
+      - toler-express-apps
 
   auth-backend-app:
     build:

@@ -1,11 +1,16 @@
 # Tomas Toler
 
-## clonar el repo
+## Clonar el repo
 ```bash
 git clone https://github.com/etec-integration-project/etec-pi-2024-backend-TolerTomas.git
 ```
 ```bash
 cd etec-pi-2024-backend-TolerTomas
+```
+
+### Crear la red para el proyecto
+```bash
+docker network create toler-express-apps
 ```
 
 ## Iniciar el contenedor

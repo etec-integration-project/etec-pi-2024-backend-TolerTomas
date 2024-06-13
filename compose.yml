@@ -27,7 +27,8 @@ services:
       - JWT_SECRET="kjghiwu8673t439847vn><72"(vgSJa7><)"
     privileged: true
     networks:
-      - auth-server-express-app
+      - toler-express-apps
 
 networks:
-  auth-server-express-app:
+  toler-express-apps:
+    external: true

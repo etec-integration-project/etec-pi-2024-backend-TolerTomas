@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import { Request, Response } from "express";
-import { addUser, getUserByEmail } from "../data/users";
+import { addUser, getUserByEmail, getUserById } from "../data/users";
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
@@ -53,4 +53,15 @@ export const login = async (req: Request, res: Response) => {
 export const logout = async (_req: Request, res: Response) => {
     res.clearCookie('express-jwt-toler-app')
     return res.send('logged out')
+}
+
+export const verify = async (req: Request, res: Response) => {
+    const { token } = req.body
+    const data = jwt.verify(token, process.env.JWT_SECRET as string)
+    const user_id: string = data.id
+
+    const existingUser = (await getUserById(user_id))[0]
+
+    return res.json({ isVerified: existingUser ? true : false })
+
 }

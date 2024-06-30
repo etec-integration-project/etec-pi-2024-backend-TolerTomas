@@ -42,3 +42,16 @@ export const addUser = async (name: string, lastname: string, email: string, pas
     const user = await getUserByEmailWithoutPassword(email)
     return user;
 }
+
+export const getUserById = async (id: string) => {
+    const existingUser =
+        await db
+                .select()
+                .from(UserTable)
+                .where(
+                    eq(
+                        UserTable.id, id
+                    )
+                )
+    return existingUser
+}

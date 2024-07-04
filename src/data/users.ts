@@ -55,3 +55,13 @@ export const getUserById = async (id: string) => {
                 )
     return existingUser
 }
+
+export const updateHaveLoggedIn = async (id: string) => {
+    await db
+        .update(UserTable)
+        .set({ haveLogged: true })
+        .where(
+            eq(UserTable.id, id)
+        )
+    return 'user updated'
+}

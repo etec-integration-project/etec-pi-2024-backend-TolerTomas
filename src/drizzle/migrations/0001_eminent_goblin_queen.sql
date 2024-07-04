@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "haveLogged" boolean DEFAULT false NOT NULL;

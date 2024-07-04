@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import { Request, Response } from "express";
-import { addUser, getUserByEmail, getUserById } from "../data/users";
+import { addUser, getUserByEmail, getUserById, updateHaveLoggedIn } from "../data/users";
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
@@ -20,7 +20,6 @@ export const register = async (req: Request, res: Response) => {
     const cookie_jwt = jwt.sign(newUser, process.env.JWT_SECRET as string);
     res.cookie('express-jwt-toler-app', cookie_jwt)
 
-    // TODO set and send cookies
 	return res.json({
 		user: newUser
 	})
@@ -63,5 +62,17 @@ export const verify = async (req: Request, res: Response) => {
     const existingUser = (await getUserById(user_id))[0]
 
     return res.json({ isVerified: existingUser ? true : false })
+}
 
+export const update = async (req: Request, res: Response) => {
+    const { token } = req.body
+    const data = jwt.verify(token, process.env.JWT_SECRET as string)
+    const user_id = data.id
+    const existingUser = (await getUserById(user_id))[0]
+
+    if (!existingUser.haveLogged) {
+        await updateHaveLoggedIn(user_id)
+        return res.json({ msg: 'user updated', user: { id: user_id } })
+    }
+    return res.json({ msg: 'user alredy logged' })
 }

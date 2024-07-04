@@ -8,6 +8,13 @@
       "when": 1717193596551,
       "tag": "0000_premium_vanisher",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1720130081760,
+      "tag": "0001_eminent_goblin_queen",
+      "breakpoints": true
     }
   ]
 }

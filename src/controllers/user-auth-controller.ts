@@ -74,5 +74,5 @@ export const update = async (req: Request, res: Response) => {
         await updateHaveLoggedIn(user_id)
         return res.json({ msg: 'user updated', user: { id: user_id } })
     }
-    return res.json({ msg: 'user alredy logged' })
+    return res.json({ msg: 'user alredy logged', user: { id: user_id } })
 }
